@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#f3e8db">
+
+<title>Ajay & Kiran — Wedding Invitation</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@400;500&display=swap');
+
+:root {
+  --cream: #f4e9dc;
+  --cream-light: #fbf6ef;
+  --ink: #302c29;
+  --sage: #748775;
+  --sage-dark: #5e705f;
+  --rose: #d09a97;
+  --rose-dark: #a96668;
+  --gold: #b79a6b;
+  --terracotta: #bd8177;
+  --line: rgba(48,44,41,.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: "DM Sans", sans-serif;
+  overflow-x: hidden;
+}
+
+/* subtle paper texture */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 100;
+  opacity: .035;
+  background-image:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+button {
+  font: inherit;
+}
+
+.hidden {
+  display: none !important;
+}
+
+/* =====================================================
+   ENTRANCE
+===================================================== */
+
+#entrance {
+  height: 100svh;
+  min-height: 620px;
+  position: relative;
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 42%,
+      #fffaf3 0%,
+      var(--cream) 62%,
+      #e8d8ca 100%
+    );
+}
+
+.entrance-leaf {
+  position: absolute;
+  width: 45vw;
+  height: 90vh;
+  opacity: .28;
+  pointer-events: none;
+}
+
+.entrance-leaf.left {
+  left: -22%;
+  top: 0;
+  transform: rotate(-14deg);
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #c7d1c5,
+      transparent
+    );
+  clip-path: polygon(
+    50% 0,
+    65% 50%,
+    55% 100%,
+    35% 55%
+  );
+}
+
+.entrance-leaf.right {
+  right: -22%;
+  bottom: 0;
+  transform: rotate(14deg);
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #d6b8ae,
+      transparent
+    );
+  clip-path: polygon(
+    50% 0,
+    65% 50%,
+    55% 100%,
+    35% 55%
+  );
+}
+
+.monogram-container {
+  text-align: center;
+  position: relative;
+  z-index: 3;
+  animation: entranceRise 1.5s ease both;
+}
+
+.monogram {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(100px, 27vw, 185px);
+  font-weight: 600;
+  line-height: .65;
+  letter-spacing: -.1em;
+}
+
+.monogram .amp {
+  font-size: .36em;
+  font-style: italic;
+  font-weight: 400;
+  margin: 0 .08em;
+}
+
+.monogram-names {
+  margin-top: 35px;
+  font-size: 9px;
+  letter-spacing: .38em;
+  text-transform: uppercase;
+}
+
+.wax-button {
+  position: absolute;
+  left: 50%;
+  bottom: 13%;
+  transform: translateX(-50%);
+
+  width: 150px;
+
+  border: none;
+  background: transparent;
+
+  cursor: pointer;
+  z-index: 5;
+
+  transition: transform .35s ease;
+}
+
+.wax-button:hover {
+  transform: translateX(-50%) scale(1.06);
+}
+
+.wax-button svg {
+  width: 100%;
+  filter: drop-shadow(0 12px 14px rgba(70,40,35,.18));
+}
+
+.seal-text {
+  fill: #f9ddd7;
+}
+
+.entrance-hint {
+  position: absolute;
+  bottom: 6.5%;
+
+  font-size: 8px;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+
+  opacity: .5;
+}
+
+@keyframes entranceRise {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+.section {
+  position: relative;
+  padding: 125px 7vw;
+  text-align: center;
+}
+
+.section-number {
+  font-size: 10px;
+  letter-spacing: .25em;
+  opacity: .4;
+  margin-bottom: 30px;
+}
+
+.kicker {
+  font-size: 9px;
+  letter-spacing: .3em;
+  text-transform: uppercase;
+  opacity: .58;
+}
+
+h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(52px, 10vw, 105px);
+  line-height: .84;
+  font-weight: 500;
+  letter-spacing: -.04em;
+  margin: 0 0 30px;
+}
+
+h2 em {
+  font-weight: 400;
+}
+
+.copy {
+  max-width: 530px;
+  margin: auto;
+
+  font-size: 14px;
+  line-height: 1.9;
+
+  opacity: .68;
+}
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+  min-height: 100svh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 4;
+}
+
+.hero-title {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(75px, 18vw, 155px);
+  line-height: .72;
+  font-weight: 600;
+  letter-spacing: -.075em;
+
+  margin: 30px 0;
+}
+
+.hero-title span {
+  font-size: .43em;
+  font-style: italic;
+  font-weight: 400;
+}
+
+.hero-subtitle {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 25px;
+  font-style: italic;
+}
+
+.hero-star {
+  color: var(--gold);
+  margin: 30px 0;
+}
+
+.hero-location {
+  font-size: 9px;
+  letter-spacing: .22em;
+  text-transform: uppercase;
+}
+
+/* =====================================================
+   VECTOR CUTOUTS
+===================================================== */
+
+.cutout {
+  position: absolute;
+  width: min(34vw, 285px);
+
+  z-index: 2;
+
+  will-change: transform;
+
+  transition: transform .12s linear;
+}
+
+.cutout.left {
+  left: 2%;
+  top: 9%;
+}
+
+.cutout.right {
+  right: 1%;
+  bottom: 6%;
+}
+
+.cutout svg {
+  width: 100%;
+  filter:
+    drop-shadow(
+      0 20px 25px rgba(60,45,35,.13)
+    );
+}
+
+.cut-paper {
+  fill: var(--cream-light);
+  stroke: #d5c1ad;
+  stroke-width: 2;
+}
+
+.cut-arch {
+  fill: none;
+  stroke: var(--sage);
+  stroke-width: 3;
+}
+
+.cut-flower {
+  fill: none;
+  stroke: var(--rose);
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+
+.cut-gold {
+  fill: none;
+  stroke: var(--gold);
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.cut-dot {
+  fill: var(--rose);
+}
+
+/* =====================================================
+   INTRO
+===================================================== */
+
+.intro {
+  background: #f0e4d8;
+}
+
+.intro-decoration {
+  width: min(450px, 80vw);
+  margin: 0 auto 45px;
+}
+
+.intro-decoration svg {
+  width: 100%;
+}
+
+/* =====================================================
+   SCRATCH DATE
+===================================================== */
+
+.reveal {
+  background: #ebe0d4;
+}
+
+.scratch-container {
+  width: min(90vw, 560px);
+  height: 300px;
+
+  margin: 55px auto 15px;
+
+  position: relative;
+  overflow: hidden;
+
+  box-shadow:
+    0 25px 55px rgba(70,50,35,.13);
+}
+
+.date-underneath {
+  position: absolute;
+  inset: 0;
+
+  display: grid;
+  place-content: center;
+
+  background: var(--cream-light);
+
+  border: 1px solid #d6c1ae;
+}
+
+.date-small {
+  font-size: 8px;
+  letter-spacing: .27em;
+  opacity: .55;
+}
+
+.date-large {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(34px, 7vw, 58px);
+  line-height: 1;
+
+  font-weight: 600;
+
+  margin: 18px 0;
+}
+
+.date-place {
+  font-size: 8px;
+  letter-spacing: .25em;
+  opacity: .55;
+}
+
+#scratchCanvas {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  touch-action: none;
+  cursor: crosshair;
+}
+
+.scratch-hint {
+  font-size: 8px;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+
+  opacity: .45;
+}
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+.countdown {
+  display: flex;
+  justify-content: center;
+
+  gap: clamp(16px, 5vw, 65px);
+
+  margin-top: 60px;
+}
+
+.countdown-item strong {
+  display: block;
+
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(42px, 8vw, 85px);
+  line-height: .8;
+  font-weight: 500;
+}
+
+.countdown-item span {
+  display: block;
+
+  font-size: 7px;
+  letter-spacing: .18em;
+
+  opacity: .5;
+
+  margin-top: 10px;
+}
+
+/* =====================================================
+   WEDDING VENUE
+===================================================== */
+
+.wedding {
+  min-height: 100svh;
+
+  background: var(--sage);
+  color: #fbf4ea;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.wedding .kicker {
+  color: #fbf4ea;
+}
+
+.mandap {
+  width: min(94vw, 820px);
+  margin: 0 auto 30px;
+}
+
+.mandap svg {
+  width: 100%;
+}
+
+.mandap-line {
+  fill: none;
+  stroke: #f8e9d7;
+  stroke-width: 3;
+  stroke-linecap: round;
+}
+
+.mandap-soft {
+  fill: none;
+  stroke: #d9b8aa;
+  stroke-width: 7;
+  stroke-linecap: round;
+}
+
+.wedding-date {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(75px, 17vw, 150px);
+  line-height: .8;
+
+  margin: 25px 0;
+
+  letter-spacing: -.04em;
+}
+
+.wedding-date em {
+  color: #ead0ad;
+  font-style: normal;
+}
+
+.wedding-location {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 26px;
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.map-button {
+  display: inline-block;
+
+  margin-top: 28px;
+  padding: 15px 25px;
+
+  color: white;
+  text-decoration: none;
+
+  border: 1px solid rgba(255,255,255,.45);
+
+  font-size: 8px;
+  letter-spacing: .2em;
+}
+
+/* =====================================================
+   CLOSING
+===================================================== */
+
+.closing {
+  min-height: 80svh;
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+  justify-content: center;
+}
+
+.closing-monogram {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 35px;
+  font-weight: 600;
+
+  letter-spacing: .12em;
+
+  margin-top: 55px;
+}
+
+/* =====================================================
+   MOBILE
+===================================================== */
+
+@media (max-width: 650px) {
+
+  .section {
+    padding: 105px 24px;
+  }
+
+  .cutout {
+    width: 155px;
+    opacity: .7;
+  }
+
+  .cutout.left {
+    left: -35px;
+  }
+
+  .cutout.right {
+    right: -35px;
+  }
+
+  .hero-title {
+    font-size: 78px;
+  }
+
+  .scratch-container {
+    height: 260px;
+  }
+
+  .wax-button {
+    bottom: 14%;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- =====================================================
+     ENTRANCE
+===================================================== -->
+
+<section id="entrance">
+
+  <div class="entrance-leaf left"></div>
+  <div class="entrance-leaf right"></div>
+
+  <div class="monogram-container">
+
+    <div class="monogram">
+      K<span class="amp">&amp;</span>A
+    </div>
+
+    <div class="monogram-names">
+      KIRAN · AJAY
+    </div>
+
+  </div>
+
+  <button
+    class="wax-button"
+    id="openInvitation"
+    aria-label="Open wedding invitation"
+  >
+
+    <svg viewBox="0 0 180 180">
+
+      <path
+        fill="#a96668"
+        d="
+        M91 10
